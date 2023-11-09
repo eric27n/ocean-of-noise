@@ -1,0 +1,120 @@
+.home-page {
+	background-color: #7c9cee;
+	height: 700px;
+	position: relative;
+	width: 1440px;
+  }
+  
+  .home-page .subtitle {
+	color: #000000;
+	font-family: "Roboto-Regular", Helvetica;
+	font-size: 20px;
+	font-weight: 400;
+	left: 466px;
+	letter-spacing: 0;
+	line-height: 28.1px;
+	position: absolute;
+	text-align: center;
+	top: 303px;
+	width: 440px;
+  }
+  
+  .home-page .title {
+	color: #000000;
+	font-family: "Roboto-Medium", Helvetica;
+	font-size: 64px;
+	font-weight: 500;
+	height: 84px;
+	left: 327px;
+	letter-spacing: 0;
+	line-height: 52.5px;
+	position: absolute;
+	text-align: center;
+	top: 169px;
+	width: 787px;
+  }
+  
+  .home-page .input {
+	height: 64px;
+	left: 506px;
+	position: absolute;
+	top: 395px;
+	width: 362px;
+  }
+  
+  .home-page .overlap-group {
+	background-color: #ffffff;
+	border: 1px solid;
+	border-color: #000000;
+	border-radius: 5px;
+	height: 64px;
+	position: relative;
+	width: 360px;
+  }
+  
+  .home-page .placeholder {
+	color: #00000080;
+	font-family: "Roboto-Regular", Helvetica;
+	font-size: 20px;
+	font-weight: 400;
+	left: 24px;
+	letter-spacing: 0;
+	line-height: 28.1px;
+	position: absolute;
+	top: 19px;
+	white-space: nowrap;
+  }
+  
+  .home-page .button-primary-instance {
+	height: 64px !important;
+	left: 1280px !important;
+	position: absolute !important;
+	top: 29px !important;
+	width: 120px !important;
+  }
+  
+  .home-page .design-component-instance-node {
+	color: #7c9cee !important;
+	font-family: "Roboto-Medium", Helvetica !important;
+	font-weight: 500 !important;
+	height: 43px !important;
+	top: 11px !important;
+	width: 71px !important;
+  }
+  
+  .home-page .logo {
+	color: #000000;
+	font-family: "Roboto-Medium", Helvetica;
+	font-size: 64px;
+	font-weight: 500;
+	left: 32px;
+	letter-spacing: 0;
+	line-height: 52.5px;
+	position: absolute;
+	top: 25px;
+  }
+  
+  .home-page .button-primary-2 {
+	height: 48px !important;
+	left: 742px !important;
+	position: absolute !important;
+	top: 494px !important;
+	width: 79px !important;
+  }
+  
+  .home-page .button-primary-3 {
+	top: 13px !important;
+	width: 30px !important;
+  }
+  
+  .home-page .button-secondary-instance {
+	height: 48px !important;
+	left: 542px !important;
+	position: absolute !important;
+	top: 494px !important;
+  }
+  
+  .home-page .button-secondary-2 {
+	top: 11px !important;
+  }
+  
