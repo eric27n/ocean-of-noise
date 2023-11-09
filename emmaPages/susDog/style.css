@@ -1,0 +1,766 @@
+.box {
+    height: 2666px;
+    position: relative;
+    width: 1442px;
+  }
+  
+  .box .album-page {
+    height: 2666px;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 1442px;
+  }
+  
+  .box .main-content {
+    height: 1171px;
+    left: 2px;
+    position: absolute;
+    top: 549px;
+    width: 1440px;
+  }
+  
+  .box .overlap {
+    background-color: #f2f2f2;
+    height: 1225px;
+    position: relative;
+  }
+  
+  .box .track-list {
+    height: 798px;
+    left: 134px;
+    position: absolute;
+    top: 99px;
+    width: 542px;
+  }
+  
+  .box .track {
+    height: 46px;
+    left: 37px;
+    position: absolute;
+    top: 0;
+    width: 289px;
+  }
+  
+  .box .group {
+    height: 46px;
+    position: relative;
+    width: 293px;
+  }
+  
+  .box .text-wrapper-2 {
+    color: #000000;
+    font-family: "Roboto-Bold", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    height: 46px;
+    left: 69px;
+    letter-spacing: 0;
+    line-height: 33.8px;
+    position: absolute;
+    top: 0;
+    width: 220px;
+  }
+  
+  .box .track-number {
+    color: #000000;
+    font-family: "Roboto-Bold", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    height: 45px;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 33.8px;
+    position: absolute;
+    top: 0;
+    width: 41px;
+  }
+  
+  .box .group-wrapper {
+    height: 46px;
+    left: 37px;
+    position: absolute;
+    top: 69px;
+    width: 289px;
+  }
+  
+  .box .divider {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 57px;
+    width: 542px;
+  }
+  
+  .box .img {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 126px;
+    width: 542px;
+  }
+  
+  .box .div-wrapper {
+    height: 46px;
+    left: 37px;
+    position: absolute;
+    top: 137px;
+    width: 289px;
+  }
+  
+  .box .divider-2 {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 191px;
+    width: 542px;
+  }
+  
+  .box .track-2 {
+    height: 46px;
+    left: 37px;
+    position: absolute;
+    top: 202px;
+    width: 289px;
+  }
+  
+  .box .track-3 {
+    height: 46px;
+    left: 37px;
+    position: absolute;
+    top: 271px;
+    width: 289px;
+  }
+  
+  .box .divider-3 {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 259px;
+    width: 542px;
+  }
+  
+  .box .divider-4 {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 328px;
+    width: 542px;
+  }
+  
+  .box .track-4 {
+    height: 46px;
+    left: 37px;
+    position: absolute;
+    top: 339px;
+    width: 289px;
+  }
+  
+  .box .divider-5 {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 393px;
+    width: 542px;
+  }
+  
+  .box .track-5 {
+    height: 46px;
+    left: 37px;
+    position: absolute;
+    top: 404px;
+    width: 289px;
+  }
+  
+  .box .track-6 {
+    height: 46px;
+    left: 37px;
+    position: absolute;
+    top: 473px;
+    width: 289px;
+  }
+  
+  .box .divider-6 {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 461px;
+    width: 542px;
+  }
+  
+  .box .divider-7 {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 530px;
+    width: 542px;
+  }
+  
+  .box .track-7 {
+    height: 46px;
+    left: 37px;
+    position: absolute;
+    top: 541px;
+    width: 289px;
+  }
+  
+  .box .divider-8 {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 595px;
+    width: 542px;
+  }
+  
+  .box .track-8 {
+    height: 46px;
+    left: 37px;
+    position: absolute;
+    top: 606px;
+    width: 289px;
+  }
+  
+  .box .track-9 {
+    height: 46px;
+    left: 37px;
+    position: absolute;
+    top: 675px;
+    width: 289px;
+  }
+  
+  .box .divider-9 {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 663px;
+    width: 542px;
+  }
+  
+  .box .divider-10 {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 732px;
+    width: 542px;
+  }
+  
+  .box .track-10 {
+    height: 46px;
+    left: 37px;
+    position: absolute;
+    top: 743px;
+    width: 289px;
+  }
+  
+  .box .track-number-2 {
+    color: #000000;
+    font-family: "Roboto-Bold", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    height: 45px;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 33.8px;
+    position: absolute;
+    top: 0;
+    width: 38px;
+  }
+  
+  .box .divider-11 {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 797px;
+    width: 542px;
+  }
+  
+  .box .blog-card {
+    height: 395px;
+    left: 747px;
+    position: absolute;
+    top: 56px;
+    width: 570px;
+  }
+  
+  .box .overlap-group-wrapper {
+    height: 395px;
+    width: 576px;
+  }
+  
+  .box .overlap-group {
+    background-color: #ffffff;
+    height: 395px;
+    position: relative;
+    width: 570px;
+  }
+  
+  .box .link-12 {
+    color: #000000;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 14px;
+    font-weight: 400;
+    left: 48px;
+    letter-spacing: 0;
+    line-height: 19.7px;
+    position: absolute;
+    top: 300px;
+    width: 68px;
+  }
+  
+  .box .summary {
+    color: #000000;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 48px;
+    letter-spacing: 0;
+    line-height: 25.3px;
+    position: absolute;
+    top: 180px;
+    width: 474px;
+  }
+  
+  .box .title {
+    color: #000000;
+    font-family: "Roboto-Bold", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    left: 48px;
+    letter-spacing: 0;
+    line-height: 33.8px;
+    position: absolute;
+    top: 65px;
+    width: 474px;
+  }
+  
+  .box .album-credits-wrapper {
+    background-color: #ffffff;
+    height: 214px;
+    left: 747px;
+    position: absolute;
+    top: 505px;
+    width: 570px;
+  }
+  
+  .box .album-credits {
+    height: 102px;
+    left: 48px;
+    position: relative;
+    top: 55px;
+    width: 505px;
+  }
+  
+  .box .overlap-2 {
+    height: 102px;
+    position: relative;
+  }
+  
+  .box .group-2 {
+    height: 102px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 484px;
+  }
+  
+  .box .text-wrapper-3 {
+    color: #000000;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    height: 27px;
+    left: 98px;
+    letter-spacing: 0;
+    line-height: 25.3px;
+    position: absolute;
+    top: 75px;
+    white-space: nowrap;
+    width: 171px;
+  }
+  
+  .box .text-wrapper-4 {
+    color: #000000;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    height: 27px;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 25.3px;
+    position: absolute;
+    top: 75px;
+    white-space: nowrap;
+    width: 67px;
+  }
+  
+  .box .text-wrapper-5 {
+    color: #000000;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    height: 27px;
+    left: 98px;
+    letter-spacing: 0;
+    line-height: 25.3px;
+    position: absolute;
+    top: 40px;
+    white-space: nowrap;
+    width: 171px;
+  }
+  
+  .box .text-wrapper-6 {
+    color: #000000;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    height: 27px;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 25.3px;
+    position: absolute;
+    top: 40px;
+    white-space: nowrap;
+    width: 67px;
+  }
+  
+  .box .title-2 {
+    color: #000000;
+    font-family: "Roboto-Bold", Helvetica;
+    font-size: 24px;
+    font-weight: 700;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 33.8px;
+    position: absolute;
+    top: 0;
+    white-space: nowrap;
+    width: 474px;
+  }
+  
+  .box .divider-12 {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 72px;
+    width: 505px;
+  }
+  
+  .box .divider-13 {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 36px;
+    width: 505px;
+  }
+  
+  .box .top-tracks {
+    background-color: #ffffff;
+    height: 289px;
+    left: 747px;
+    position: absolute;
+    top: 758px;
+    width: 570px;
+  }
+  
+  .box .table {
+    height: 136px;
+    left: 48px;
+    position: relative;
+    top: 51px;
+    width: 507px;
+  }
+  
+  .box .top-track {
+    height: 30px;
+    left: 0;
+    position: absolute;
+    top: 71px;
+    width: 509px;
+  }
+  
+  .box .top-track-title {
+    color: #000000;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    height: 27px;
+    left: 98px;
+    letter-spacing: 0;
+    line-height: 25.3px;
+    position: absolute;
+    top: 3px;
+    white-space: nowrap;
+    width: 171px;
+  }
+  
+  .box .top-track-number {
+    color: #000000;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    height: 27px;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 25.3px;
+    position: absolute;
+    top: 3px;
+    white-space: nowrap;
+    width: 67px;
+  }
+  
+  .box .divider-14 {
+    height: 1px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 505px;
+  }
+  
+  .box .top-track-2 {
+    height: 31px;
+    left: 0;
+    position: absolute;
+    top: 35px;
+    width: 509px;
+  }
+  
+  .box .top-track-title-2 {
+    color: #000000;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    height: 27px;
+    left: 98px;
+    letter-spacing: 0;
+    line-height: 25.3px;
+    position: absolute;
+    top: 4px;
+    white-space: nowrap;
+    width: 171px;
+  }
+  
+  .box .top-track-number-2 {
+    color: #000000;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    height: 27px;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 25.3px;
+    position: absolute;
+    top: 4px;
+    white-space: nowrap;
+    width: 67px;
+  }
+  
+  .box .top-track-3 {
+    height: 30px;
+    left: 0;
+    position: absolute;
+    top: 106px;
+    width: 509px;
+  }
+  
+  .box .album {
+    height: 398px;
+    left: 0;
+    position: absolute;
+    top: 1773px;
+    width: 1440px;
+  }
+  
+  .box .overlap-3 {
+    background-color: #f2f2f2;
+    height: 512px;
+    position: relative;
+  }
+  
+  .box .recommendation {
+    height: 346px;
+    left: 98px;
+    position: absolute;
+    top: 166px;
+    width: 255px;
+  }
+  
+  .box .media {
+    background-color: #000000;
+    height: 255px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 255px;
+  }
+  
+  .box .title-3 {
+    color: #000000;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 32.6px;
+    position: absolute;
+    text-align: center;
+    top: 278px;
+    width: 255px;
+  }
+  
+  .box .subtitle-5 {
+    color: #000000;
+    font-family: "Roboto-Bold", Helvetica;
+    font-size: 40px;
+    font-weight: 700;
+    left: 98px;
+    letter-spacing: 0;
+    line-height: 56.2px;
+    position: absolute;
+    top: 69px;
+    white-space: nowrap;
+  }
+  
+  .box .recommendation-2 {
+    height: 346px;
+    left: 436px;
+    position: absolute;
+    top: 166px;
+    width: 255px;
+  }
+  
+  .box .recommendation-3 {
+    height: 346px;
+    left: 774px;
+    position: absolute;
+    top: 166px;
+    width: 255px;
+  }
+  
+  .box .recommendation-4 {
+    height: 346px;
+    left: 1112px;
+    position: absolute;
+    top: 166px;
+    width: 255px;
+  }
+  
+  .box .header {
+    background-color: transparent;
+    height: 549px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 1440px;
+  }
+  
+  .box .album-header {
+    background-color: #7c9cee;
+    height: 549px;
+    width: 1440px;
+  }
+  
+  .box .blog-card-feature {
+    height: 370px;
+    left: 135px;
+    position: relative;
+    top: 90px;
+    width: 1178px;
+  }
+  
+  .box .overlap-group-2 {
+    background-color: #000000;
+    height: 370px;
+    position: relative;
+    width: 1170px;
+  }
+  
+  .box .overlap-4 {
+    height: 125px;
+    left: 478px;
+    position: absolute;
+    top: 90px;
+    width: 492px;
+  }
+  
+  .box .text-wrapper-7 {
+    color: #ffffff;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 48px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    top: 0;
+    width: 492px;
+  }
+  
+  .box .text-wrapper-8 {
+    color: #ffffff;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 24px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: 33.8px;
+    position: absolute;
+    top: 73px;
+    white-space: nowrap;
+  }
+  
+  .box .media-2 {
+    height: 370px;
+    left: 0;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    width: 400px;
+  }
+  
+  .box .media-label {
+    color: #ffffff;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 14px;
+    font-weight: 400;
+    left: 478px;
+    letter-spacing: 0;
+    line-height: 19.7px;
+    position: absolute;
+    top: 54px;
+    white-space: nowrap;
+  }
+  
+  .box .release-date {
+    color: #ffffff;
+    font-family: "Roboto-Regular", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 478px;
+    letter-spacing: 0;
+    line-height: 25.3px;
+    position: absolute;
+    top: 215px;
+    white-space: nowrap;
+  }
+  
+  .box .footer-full-instance {
+    left: 0 !important;
+    position: absolute !important;
+    top: 2286px !important;
+  }
+  
