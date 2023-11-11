@@ -1,9 +1,43 @@
 // import logo from './logo.svg';
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import { FooterFull } from "./FooterFull";
 import './App.css';
 
 const App = () => {
+  const [tracks, setTracks] = useState([]);
+  const [evenNumbersCount, setEvenNumbersCount] = useState(0);
+
+  const fetchEvenNumbersCount = () => {
+    const requestBody = { numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }; // Example array of numbers
+
+    fetch('http://localhost:5000/count-evens', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
+    })
+    .then(response => response.json())
+    .then(data => {
+      setEvenNumbersCount(data.even_numbers_count); // Update state with the count
+    })
+    .catch(error => {
+      console.error('Error fetching even numbers count: ', error);
+    });
+  };  
+
+  useEffect(() => {
+    fetch('http://localhost:5000/api/data')
+      .then(response => response.json())
+      .then(data => {
+        setTracks(data); // Assuming data is an array of tracks
+      })
+      .catch(error => {
+        console.error('Error fetching data: ', error);
+      });
+  }, []);
+
+
   return (
     <div className="box">
       <div className="artist-page">
