@@ -6,6 +6,7 @@ import './App.css';
 const App = () => {
   const [tracks, setTracks] = useState([]);
   const [evenNumbersCount, setEvenNumbersCount] = useState(0);
+  const [kexpData, setKexpData] = useState(null);
 
   const fetchEvenNumbersCount = () => {
     const requestBody = { numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] }; // Example array of numbers
@@ -34,6 +35,20 @@ const App = () => {
       })
       .catch(error => {
         console.error('Error fetching data: ', error);
+      });
+  }, []);
+
+  useEffect(() => {
+    // ... existing fetch calls ...
+
+    // Fetch data from the new Flask route
+    fetch('http://localhost:5000/api/kexp')
+      .then(response => response.json())
+      .then(data => {
+        setKexpData(data); // Set the state with the fetched data
+      })
+      .catch(error => {
+        console.error('Error fetching KEXP data: ', error);
       });
   }, []);
 
