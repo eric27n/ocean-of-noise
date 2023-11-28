@@ -1,6 +1,3 @@
-// import axios from "axios";
-import Recommendation from "./Recommendation";
-
 import React, { useEffect, useState } from "react";
 
 function generateRandomString(length) {
@@ -14,12 +11,12 @@ function generateRandomString(length) {
   return result;
 }
 
-function Login() {
+function Login({ onLogin }) {
   const client_id = "503844f932bf48a98b244d1a202d63f7";
   const redirect_uri = "http://localhost:5173";
   const auth_endpoint = "https://accounts.spotify.com/authorize";
-  const response_type = "token"; // Assuming you want the implicit grant flow
-  const scope = "user-read-private user-read-email user-top-read"; // Replace 'your_scopes' with the necessary scopes for your application
+  const response_type = "token";
+  const scope = "user-read-private user-read-email user-top-read";
   const state = generateRandomString(16);
 
   const authUrl =
@@ -44,45 +41,31 @@ function Login() {
       window.location.hash = "";
       window.localStorage.setItem("token", newToken);
       setToken(newToken);
+
+      // Call onLogin when the token is set
+      if (onLogin) {
+        onLogin();
+      }
     } else {
-      // Check for token in localStorage on component mount
       const storedToken = window.localStorage.getItem("token");
       if (storedToken) {
         setToken(storedToken);
       }
     }
-  }, []);
+  }, [onLogin]);
 
   const handleLoginClick = () => {
-    // Redirect the user to the Spotify authorization URL
     window.location.href = authUrl;
-  };
-
-  const handleLogoutClick = () => {
-    setToken("");
-    window.localStorage.removeItem("token");
   };
 
   return (
     <div>
-      {!token ? (
-        <button
-          className="pa2 br3 grow b--none bg-lightest-blue ma3 button-external"
-          onClick={handleLoginClick}
-        >
-          Login to Spotify
-        </button>
-      ) : (
-        <div>
-          <button
-            className="pa2 br3 grow b--none bg-lightest-blue ma3 button-external"
-            onClick={handleLogoutClick}
-          >
-            Logout
-          </button>
-          <Recommendation accessToken={token} />
-        </div>
-      )}
+      <button
+        className="pa2 br3 grow b--none bg-lightest-blue ma3 button-external"
+        onClick={handleLoginClick}
+      >
+        Login to Spotify
+      </button>
     </div>
   );
 }
