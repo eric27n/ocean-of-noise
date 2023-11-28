@@ -33,22 +33,19 @@
 
 // export default App
 
-import AlbumHeader from "./components/album/AlbumHeader";
-import ListGroup from "./components/album/ListGroup";
-import SquareCard from "./components/SquareCard";
-import AboutCard from "./components/album/AboutCard";
-import AlbumCredits from "./components/album/AlbumCredits";
 import Album from "./pages/Album";
 import Song from "./pages/Song";
 import Landing from "./pages/Landing";
+import Recommendations from "./components/song/Recommendations";
 
 function App() {
   return (
     <div>
-      {/* <Landing></Landing> */}
-      <Album></Album>
-      {/* <Song></Song> */}
+      {/* <Landing /> */}
+      {/* <Album/> */}
+      {/* <Song/> */}
       {/* <SquareCard image="src\assets\album_blond.jpg" name="Frank Ocean" /> */}
+      {/* <Song /> */}
     </div>
   );
 }
