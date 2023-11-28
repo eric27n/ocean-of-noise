@@ -37,6 +37,7 @@ import Album from "./pages/Album";
 import Song from "./pages/Song";
 import Landing from "./pages/Landing";
 import Recommendations from "./components/song/Recommendations";
+import SearchResults from "./pages/SearchResults";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
       {/* <Song/> */}
       {/* <SquareCard image="src\assets\album_blond.jpg" name="Frank Ocean" /> */}
       {/* <Song /> */}
+      {/* <SearchResults /> */}
     </div>
   );
 }
