@@ -127,7 +127,10 @@ const CLIENT_SECRET = "ab3b3ba3dfac470b8419d7c94f0fe98d";
 function Search() {
   const [searchInput, setSearchInput] = useState("");
   const [accessToken, setAccessToken] = useState("");
-  const [albums, setAlbums] = useState([]);
+  // const [albums, setAlbums] = useState([]);
+  const [tracks, setTracks] = useState([]);
+  const [showSong, setShowSong] = useState(false);
+  const [selectedTrack, setSelectedTrack] = useState(null);
 
   useEffect(() => {
     var authParameters = {
@@ -158,30 +161,45 @@ function Search() {
     };
 
     try {
-      // Fetch artist ID
+      // Fetch track results
       var response = await fetch(
-        "https://api.spotify.com/v1/search?q=" + searchInput + "&type=artist",
+        "https://api.spotify.com/v1/search?q=" + searchInput + "&type=track",
         searchParameters
       );
       var data = await response.json();
       console.log(data);
 
-      var artistID = data.artists.items[0].id;
-      console.log("Artist ID is " + artistID);
+      // Check if there are tracks in the results
+      if (data.tracks && data.tracks.items.length > 0) {
+        setTracks(data.tracks.items);
+      } else {
+        console.log("No tracks found.");
+        setTracks([]); // Clear tracks array if no results
+      }
+      // // Fetch artist ID
+      // var response = await fetch(
+      //   "https://api.spotify.com/v1/search?q=" + searchInput + "&type=artist",
+      //   searchParameters
+      // );
+      // var data = await response.json();
+      // console.log(data);
 
-      // Fetch albums
-      var returnedAlbums = await fetch(
-        "https://api.spotify.com/v1/artists/" +
-          artistID +
-          "/albums" +
-          "?include_groups=album&market=US&limit=20",
-        searchParameters
-      )
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          setAlbums(data.items);
-        });
+      // var artistID = data.artists.items[0].id;
+      // console.log("Artist ID is " + artistID);
+
+      // // Fetch albums
+      // var returnedAlbums = await fetch(
+      //   "https://api.spotify.com/v1/artists/" +
+      //     artistID +
+      //     "/albums" +
+      //     "?include_groups=album&market=US&limit=20",
+      //   searchParameters
+      // )
+      //   .then((response) => response.json())
+      //   .then((data) => {
+      //     console.log(data);
+      //     setAlbums(data.items);
+      //   });
     } catch (error) {
       console.error("Error during search:", error);
     }
@@ -189,7 +207,71 @@ function Search() {
 
   return (
     <div>
-      <div className="container pt-5">
+      {accessToken ? ( // Check if the user is signed in
+        <div className="container pt-5">
+          <div className="row">
+            <div className="col mx-auto">
+              <InputGroup className="mb-3" size="lg">
+                <FormControl
+                  style={{ height: "4rem", fontSize: "1.5rem" }}
+                  placeholder="Search For Track"
+                  type="input"
+                  onKeyPress={(event) => {
+                    if (event.key === "Enter") {
+                      console.log("Pressed enter");
+                      search(); // Trigger search on Enter
+                    }
+                  }}
+                  onChange={(event) => setSearchInput(event.target.value)}
+                />
+                <Button
+                  style={{
+                    backgroundColor: "#000",
+                    color: "#fff",
+                    borderColor: "#000",
+                  }}
+                  onClick={() => {
+                    console.log("Clicked Search");
+                    search();
+                  }}
+                >
+                  Search
+                </Button>
+              </InputGroup>
+            </div>
+          </div>
+
+          <Container>
+            <Row className="mx-2 row row-cols-4">
+              {tracks.map((track, i) => (
+                <SquareCard
+                  key={i}
+                  image={track.album.images[0].url}
+                  name={track.name}
+                  onClick={() => handleCardClick(track)}
+                  to={`/song/${track.id}`}
+                  margin="m-2"
+                />
+              ))}
+            </Row>
+          </Container>
+        </div>
+      ) : (
+        <p>Please sign in to access search and cards.</p>
+      )}
+
+      {showSong && selectedTrack && (
+        <Song
+          imageSrc={selectedTrack.album.images[0].url}
+          songName={selectedTrack.name}
+          albumName={selectedTrack.album.name}
+          artistName={selectedTrack.artists
+            .map((artist) => artist.name)
+            .join(", ")}
+          releaseDate="Jan. 20, 2004" // You might want to get the actual release date from the API
+        />
+      )}
+      {/* <div className="container pt-5">
         <div className="row">
           <div className="col mx-auto">
             <InputGroup className="mb-3" size="lg">
@@ -237,7 +319,7 @@ function Search() {
             );
           })}
         </Row>
-      </Container>
+      </Container> */}
     </div>
   );
 }
