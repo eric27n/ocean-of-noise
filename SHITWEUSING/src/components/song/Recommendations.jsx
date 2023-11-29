@@ -1,6 +1,26 @@
 import SquareCard from "../SquareCard";
+import React, { useEffect, useState } from "react";
+import axios from "axios"; // Import Axios
 
 const Recommendations = () => {
+  const [recommendations, setRecommendations] = useState([]);
+
+  useEffect(() => {
+    // Make an API request to your backend using Axios
+    axios
+      .get("http://localhost:5000/api/kexp") // Use the correct endpoint URL
+      .then((response) => {
+        // Assuming the response data is an array of JSON strings
+        const parsedRecommendations = response.data.data.map((recommendation) =>
+          JSON.parse(recommendation)
+        );
+        console.log(parsedRecommendations);
+        setRecommendations(parsedRecommendations);
+      })
+      .catch((error) => {
+        console.error("Error fetching recommendations:", error);
+      });
+  }, []);
   return (
     <>
       <div className="container">
@@ -10,7 +30,15 @@ const Recommendations = () => {
           </h2>
         </div>
         <div className="row mx-2 row-cols-4">
-          <SquareCard
+          {recommendations.map((track, index) => (
+            <SquareCard
+              key={index}
+              image={track.album.images[0].url} // Update with the actual image URL
+              name={track.name} // Update with the actual track name
+              margin="m-2"
+            />
+          ))}
+          {/* <SquareCard
             image="src\assets\album_blond.jpg"
             name="Frank Ocean"
             margin="m-2"
@@ -29,7 +57,7 @@ const Recommendations = () => {
             image="src\assets\album_blond.jpg"
             name="Frank Ocean"
             margin="m-2"
-          />
+          /> */}
         </div>
       </div>
     </>
