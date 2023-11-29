@@ -120,6 +120,7 @@ import {
 } from "react-bootstrap";
 import React, { useState, useEffect } from "react";
 import SquareCard from "../SquareCard";
+import Recommendations from "../song/Recommendations";
 
 const CLIENT_ID = "503844f932bf48a98b244d1a202d63f7";
 const CLIENT_SECRET = "ab3b3ba3dfac470b8419d7c94f0fe98d";
@@ -255,6 +256,7 @@ function Search() {
               ))}
             </Row>
           </Container>
+          <Recommendations />
         </div>
       ) : (
         <p>Please sign in to access search and cards.</p>
