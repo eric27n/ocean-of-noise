@@ -1,12 +1,12 @@
 // import React from "react";
 // import Card from "react-bootstrap/Card";
 
-function SquareCard({ image, name }) {
+function SquareCard({ image, name, margin }) {
   return (
-    <div className="card text-bg-dark" style={{ width: "18rem" }}>
+    <div className={`card text-bg-dark ${margin}`} style={{ width: "18rem" }}>
       <img
         src={image}
-        className="card-img-top"
+        className="card-img-top mt-3"
         alt={name}
         style={{ aspectRatio: "1 / 1" }}
       />
