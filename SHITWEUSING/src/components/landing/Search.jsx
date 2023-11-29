@@ -110,9 +110,16 @@
 
 // // export default Search;
 
-import { Container, InputGroup, FormControl, Button, Row, Card } from 'react-bootstrap';
-import React, { useState, useEffect } from 'react';
-import SquareCard from '../SquareCard';
+import {
+  Container,
+  InputGroup,
+  FormControl,
+  Button,
+  Row,
+  Card,
+} from "react-bootstrap";
+import React, { useState, useEffect } from "react";
+import SquareCard from "../SquareCard";
 
 const CLIENT_ID = "503844f932bf48a98b244d1a202d63f7";
 const CLIENT_SECRET = "ab3b3ba3dfac470b8419d7c94f0fe98d";
@@ -124,41 +131,54 @@ function Search() {
 
   useEffect(() => {
     var authParameters = {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: 'grant_type=client_credentials&client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET
-    }
+      body:
+        "grant_type=client_credentials&client_id=" +
+        CLIENT_ID +
+        "&client_secret=" +
+        CLIENT_SECRET,
+    };
 
-    fetch('https://accounts.spotify.com/api/token', authParameters)
-      .then(result => result.json())
-      .then(data => setAccessToken(data.access_token))
+    fetch("https://accounts.spotify.com/api/token", authParameters)
+      .then((result) => result.json())
+      .then((data) => setAccessToken(data.access_token));
   }, []);
 
   async function search() {
     console.log("Search for:", searchInput);
     var searchParameters = {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + accessToken
-      }
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + accessToken,
+      },
     };
 
     try {
       // Fetch artist ID
-      var response = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', searchParameters);
+      var response = await fetch(
+        "https://api.spotify.com/v1/search?q=" + searchInput + "&type=artist",
+        searchParameters
+      );
       var data = await response.json();
       console.log(data);
-      
+
       var artistID = data.artists.items[0].id;
       console.log("Artist ID is " + artistID);
 
       // Fetch albums
-      var returnedAlbums = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/albums' + '?include_groups=album&market=US&limit=20', searchParameters)
-        .then(response => response.json())
-        .then(data => {
+      var returnedAlbums = await fetch(
+        "https://api.spotify.com/v1/artists/" +
+          artistID +
+          "/albums" +
+          "?include_groups=album&market=US&limit=20",
+        searchParameters
+      )
+        .then((response) => response.json())
+        .then((data) => {
           console.log(data);
           setAlbums(data.items);
         });
@@ -169,24 +189,39 @@ function Search() {
 
   return (
     <div>
-      <Container>
-        <InputGroup className="mb-3" size="lg">
-          <FormControl
-            placeholder="Search For Artist"
-            type="input"
-            onKeyPress={event => {
-              if (event.key === "Enter") {
-                console.log("Pressed enter");
-                search(); // Trigger search on Enter
-              }
-            }}
-            onChange={event => setSearchInput(event.target.value)}
-          />
-          <Button onClick={() => { console.log("Clicked Search"); search(); }}>
-            Search
-          </Button>
-        </InputGroup>
-      </Container>
+      <div className="container pt-5">
+        <div className="row">
+          <div className="col mx-auto">
+            <InputGroup className="mb-3" size="lg">
+              <FormControl
+                style={{ height: "4rem", fontSize: "1.5rem" }}
+                placeholder="Search for a song!"
+                type="input"
+                onKeyPress={(event) => {
+                  if (event.key === "Enter") {
+                    console.log("Pressed enter");
+                    search(); // Trigger search on Enter
+                  }
+                }}
+                onChange={(event) => setSearchInput(event.target.value)}
+              />
+              <Button
+                style={{
+                  backgroundColor: "#000",
+                  color: "#fff",
+                  borderColor: "#000",
+                }}
+                onClick={() => {
+                  console.log("Clicked Search");
+                  search();
+                }}
+              >
+                Search
+              </Button>
+            </InputGroup>
+          </div>
+        </div>
+      </div>
 
       <Container>
         <Row className="mx-2 row row-cols-4">
@@ -197,8 +232,9 @@ function Search() {
                 key={i}
                 image={album.images[0].url}
                 name={album.name}
+                margin="m-2"
               />
-            )
+            );
           })}
         </Row>
       </Container>

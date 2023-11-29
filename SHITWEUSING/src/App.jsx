@@ -41,7 +41,6 @@
 // import {Container, InputGroup, FormControl, Button, Row, Card} from 'react-bootstrap';
 // import React, { useState, useEffect } from 'react';
 
-
 // const CLIENT_ID = "503844f932bf48a98b244d1a202d63f7";
 // const CLIENT_SECRET = "ab3b3ba3dfac470b8419d7c94f0fe98d";
 
@@ -58,12 +57,12 @@
 //       },
 //       body: 'grant_type=client_credentials&client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET
 //     }
-  
+
 //     fetch('https://accounts.spotify.com/api/token', authParameters)
 //       .then(result => result.json())
 //       .then(data => setAccessToken(data.access_token))
 //   }, []);
-  
+
 //   async function search() {
 //     console.log("Search for:", searchInput);
 //     var searchParameters = {
@@ -73,16 +72,16 @@
 //         'Authorization': 'Bearer ' + accessToken
 //       }
 //     };
-  
+
 //     try {
 //       // Fetch artist ID
 //       var artistID = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', searchParameters)
 //         .then(response => response.json())
 //         .then(data=>console.log(data))
 //         // .then(data => data.artists.items[0].id);
-  
+
 //       console.log("Artist ID is " + artistID);
-  
+
 //       // Fetch albums
 //       var returnedAlbums  = await fetch('https://api.spotify.com/v1/artists/' + artistID + '/albums' + '?include_groups=album&market=US&limit=20', searchParameters)
 //         .then(response => response.json())
@@ -151,7 +150,6 @@
 // import Landing from "./pages/Landing";
 // import Login from "./components/landing/Login";
 
-
 // const CLIENT_ID = "503844f932bf48a98b244d1a202d63f7";
 // const CLIENT_SECRET = "ab3b3ba3dfac470b8419d7c94f0fe98d";
 
@@ -189,7 +187,7 @@
 //       var response = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', searchParameters);
 //       var data = await response.json();
 //       console.log(data);
-      
+
 //       var artistID = data.artists.items[0].id;
 //       console.log("Artist ID is " + artistID);
 
@@ -239,7 +237,7 @@
 
 // export default App;
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import Landing from "./pages/Landing";
 import Login from "./components/landing/Login";
 import Search from "./components/landing/Search";
@@ -257,17 +255,21 @@ function App() {
     if (isLoggedIn) {
       // Fetch access token only if logged in
       var authParameters = {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: 'grant_type=client_credentials&client_id=' + CLIENT_ID + '&client_secret=' + CLIENT_SECRET
+        body:
+          "grant_type=client_credentials&client_id=" +
+          CLIENT_ID +
+          "&client_secret=" +
+          CLIENT_SECRET,
       };
 
-      fetch('https://accounts.spotify.com/api/token', authParameters)
-        .then(result => result.json())
-        .then(data => setAccessToken(data.access_token))
-        .catch(error => console.error("Error fetching access token:", error));
+      fetch("https://accounts.spotify.com/api/token", authParameters)
+        .then((result) => result.json())
+        .then((data) => setAccessToken(data.access_token))
+        .catch((error) => console.error("Error fetching access token:", error));
     }
   }, [isLoggedIn]);
 
@@ -286,7 +288,7 @@ function App() {
   //     var response = await fetch('https://api.spotify.com/v1/search?q=' + searchInput + '&type=artist', searchParameters);
   //     var data = await response.json();
   //     console.log(data);
-      
+
   //     var artistID = data.artists.items[0].id;
   //     console.log("Artist ID is " + artistID);
 
@@ -303,12 +305,13 @@ function App() {
   // }
 
   return (
-    <div>
-      {!isLoggedIn ? (
-        <Login onLogin={() => setLoggedIn(true)} />
-      ) : (
-        <Search />
-      )}
+    <div
+      className="container-fluid vh-100"
+      style={{
+        backgroundImage: "linear-gradient(to bottom, #6696F2, #FFFFFF)",
+      }}
+    >
+      {!isLoggedIn ? <Login onLogin={() => setLoggedIn(true)} /> : <Search />}
     </div>
   );
 }

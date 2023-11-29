@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import oceanGif from "../../assets/retroOcean.gif";
 
 function generateRandomString(length) {
   const characters =
@@ -59,13 +60,46 @@ function Login({ onLogin }) {
   };
 
   return (
-    <div>
-      <button
-        className="pa2 br3 grow b--none bg-lightest-blue ma3 button-external"
-        onClick={handleLoginClick}
-      >
-        Login to Spotify
-      </button>
+    // <div className="container">
+    //   <div className="row d-flex flex-column">
+    //     <div className="col d-flex justify-content-center">
+    //       <h1>Ocean of Noise</h1>
+    //     </div>
+    //     <div className="col d-flex justify-content-center">
+    //       <h4>Sign in to search for a song!</h4>
+    //     </div>
+    //     <div className="col d-flex justify-content-center">
+    //       <button
+    //         className="pa2 br3 grow b--none bg-lightest-blue ma3 button-external"
+    //         onClick={handleLoginClick}
+    //       >
+    //         Spotify Sign In
+    //       </button>
+    //     </div>
+    //   </div>
+    // </div>
+    <div
+      className="container-fluid vh-100 d-flex justify-content-center align-items-center"
+      // style={{
+      //   backgroundImage: `url(${oceanGif})`, // Set the GIF as background
+      //   backgroundSize: "cover", // Adjust to your needs
+      //   backgroundPosition: "center center", // Adjust to your needs
+      //   animation: "animateBackground 10s linear infinite", // Animation
+      // }}
+      style={{
+        backgroundImage: "linear-gradient(to bottom, #6696F2, #FFFFFF)", // Inline style for gradient
+      }}
+    >
+      <div className="text-center">
+        <h1 className="fw-bold mb-4 display-3">Ocean of Noise</h1>
+        <h2 className="mb-4">Sign in to search for a song!</h2>
+        <button
+          className="btn btn-dark btn-lg pa2 br3 grow b--none bg-lightest-blue ma3 button-external"
+          onClick={handleLoginClick}
+        >
+          Spotify Sign In
+        </button>
+      </div>
     </div>
   );
 }
