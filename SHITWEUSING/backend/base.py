@@ -4,6 +4,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import MinMaxScaler
 import re
 import json
+import random
 
 from fuzzywuzzy import fuzz, process
 import spotipy
@@ -114,8 +115,8 @@ def get_kexp_data():
         kexp_df['Time'] = kexp_df['Time'].apply(convert_to_seconds)
         df = kexp_df
         
-        track_index = [67,55,3,11,13,9,132,284,2023]
-        recommended_indices = recommend_tracks_for_new_track(track_index, df)
+        song = random.randint(0, len(df)-1)
+        recommended_indices = recommend_tracks(song, df)
 
         indeces = []
         for i in recommended_indices:
