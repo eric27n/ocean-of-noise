@@ -48,8 +48,13 @@
 
 // export default App;
 
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Login from "./components/landing/Login";
 import Search from "./components/landing/Search";
 import Song from "./pages/Song";
@@ -60,19 +65,20 @@ function App() {
   return (
     <Router>
       <div
-        className="container-fluid vh-100"
-        style={{ backgroundImage: "linear-gradient(to bottom, #6696F2, #FFFFFF)" }}
+        className="container-fluid vh-100 p-0"
+        style={{
+          backgroundImage: "linear-gradient(to bottom, #6696F2, #FFFFFF)",
+        }}
       >
-        {!isLoggedIn
-          ? <Login onLogin={() => setLoggedIn(true)} />
-          : (
-              <Routes>
-                <Route path="/" element={<Navigate replace to="/search" />} />
-                <Route path="/search" element={<Search />} />
-                <Route path="/song/:songId" element={<Song />} />
-              </Routes>
-            )
-        }
+        {!isLoggedIn ? (
+          <Login onLogin={() => setLoggedIn(true)} />
+        ) : (
+          <Routes>
+            <Route path="/" element={<Navigate replace to="/search" />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/song/:songId" element={<Song />} />
+          </Routes>
+        )}
       </div>
     </Router>
   );
