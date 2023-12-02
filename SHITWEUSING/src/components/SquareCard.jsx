@@ -1,6 +1,3 @@
-// import React from "react";
-// import Card from "react-bootstrap/Card";
-
 // function SquareCard({ image, name, margin }) {
 //   return (
 //     <div className={`card text-bg-dark ${margin}`} style={{ width: "18rem" }}>
@@ -21,9 +18,18 @@
 
 // export default SquareCard;
 
-function SquareCard({ image, name, margin }) {
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+function SquareCard({ image, name, margin, songId }) {
+  let navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/song/${songId}`); // Navigates to the song detail page
+  };
+
   return (
-    <div className={`card text-bg-dark ${margin}`} style={{ width: "18rem" }}>
+    <div className={`card text-bg-dark ${margin}`} style={{ width: "18rem" }} onClick={handleClick}>
       <img
         src={image}
         className="card-img-top mt-3"
