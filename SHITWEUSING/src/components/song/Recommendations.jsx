@@ -5,6 +5,10 @@ import axios from "axios"; // Import Axios
 const Recommendations = () => {
   const [recommendations, setRecommendations] = useState([]);
 
+  const getArtists = (track) => {
+    return track.artists.map((artist) => artist.name).join(", ");
+  };
+
   useEffect(() => {
     // Make an API request to your backend using Axios
     axios
@@ -34,30 +38,10 @@ const Recommendations = () => {
             <SquareCard
               key={index}
               image={track.album.images[0].url} // Update with the actual image URL
-              name={track.name} // Update with the actual track name
+              name={`${getArtists(track)} - "${track.name}"`} // Update with the actual track name
               margin="m-2"
             />
           ))}
-          {/* <SquareCard
-            image="src\assets\album_blond.jpg"
-            name="Frank Ocean"
-            margin="m-2"
-          />
-          <SquareCard
-            image="src\assets\album_blond.jpg"
-            name="Frank Ocean"
-            margin="m-2"
-          />
-          <SquareCard
-            image="src\assets\album_blond.jpg"
-            name="Frank Ocean"
-            margin="m-2"
-          />
-          <SquareCard
-            image="src\assets\album_blond.jpg"
-            name="Frank Ocean"
-            margin="m-2"
-          /> */}
         </div>
       </div>
     </>

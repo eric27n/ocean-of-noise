@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, request
 import pandas as pd
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.preprocessing import MinMaxScaler
@@ -8,7 +8,7 @@ import random
 
 from fuzzywuzzy import fuzz, process
 import spotipy
-from spotipy.oauth2 import SpotifyClientCredentials
+from spotipy.oauth2 import SpotifyClientCredentials, SpotifyOAuth
 from dotenv import dotenv_values
 from flask_cors import CORS
 
@@ -147,6 +147,33 @@ def get_kexp_data():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+@app.route('/api/send-data', methods=['POST'])
+def receive_data():
+    try:
+        data = request.get_json()  # Get JSON data sent from the frontend
+        # Process the received data here
+        
+        # Example: Access the 'myData' field sent from React
+        received_data = data.get('myData')
+        
+        # Perform operations with received data
+        env_vars = dotenv_values('.flaskenv')
+        client_id = env_vars['CLIENT_ID']
+        client_secret = env_vars['CLIENT_SECRET']
+        redirect_uri = 'http://localhost:8080/callback'  # For local development, you can use 'http://localhost:8080/callback'
+        scope = 'user-top-read'  # Scope required for accessing user's top tracks
+
+        # Authenticate with Spotify using OAuth
+        sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=client_id, client_secret=client_secret,
+                                                    redirect_uri=redirect_uri, scope=scope))
+        top_tracks = sp.current_user_top_tracks(limit=10, time_range='short_term')
+        songs_list = []
+        for idx, track in enumerate(top_tracks['items'], 1):
+            entry = {'name': track['name'], 'artist': ', '.join([artist['name'] for artist in track['artists']])}
+            songs_list.append(json.dumps(entry))
+        return jsonify({"message": songs_list})
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
