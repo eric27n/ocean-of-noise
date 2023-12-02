@@ -250,9 +250,8 @@ function Search() {
                   key={i}
                   image={track.album.images[0].url}
                   name={track.name}
-                  onClick={() => handleCardClick(track)}
-                  to={`/song/${track.id}`}
                   margin="m-2"
+                  songId={track.id}
                 />
               ))}
             </Row>

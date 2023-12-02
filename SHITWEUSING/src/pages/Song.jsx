@@ -1,21 +1,71 @@
 import SongHeader from "../components/song/SongHeader";
-import Lyrics from "../components/song/Lyrics";
 import Recommendations from "../components/song/Recommendations";
+import { useParams } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-let lyrics =
-  "[Intro] \n Yeah, yeah, um (Woo) \n Yeah, yeah, yeah \n\n[Verse 1] \n\nThat's the way every day goes\nEvery time we've no control\nIf the sky is pink and white\nIf the ground is black and yellow\nIt's the same way you showed me\nNod my head, don't close my eyes\nHalfway on a slow move\nIt's the same way you showed me\nIf you could fly, then you'd feel south\nUp north's getting cold soon\nThe way it is, we're on land\nStill, I'm someone to hold true\nKeep you cool when it's still alive\nWon't let you down when it's all ruin\n\n[Chorus]\nJust the same way you showed me, showed me\nYou showed me love\nGlory from above\nRegard, my dear\nIt's all downhill from here";
+const CLIENT_ID = "503844f932bf48a98b244d1a202d63f7";
+const CLIENT_SECRET = "ab3b3ba3dfac470b8419d7c94f0fe98d";
 
 const Song = () => {
+  const { songId } = useParams();
+  const [songData, setSongData] = useState(null);
+  const [accessToken, setAccessToken] = useState(""); // Add state for access token
+
+  // Function to fetch access token
+  const fetchAccessToken = async () => {
+    const authParameters = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body:
+        "grant_type=client_credentials&client_id=" +
+        CLIENT_ID +
+        "&client_secret=" +
+        CLIENT_SECRET,
+    };
+
+    const response = await fetch(
+      "https://accounts.spotify.com/api/token",
+      authParameters
+    );
+    const data = await response.json();
+    setAccessToken(data.access_token);
+  };
+
+  useEffect(() => {
+    fetchAccessToken();
+  }, []);
+
+  useEffect(() => {
+    if (accessToken) {
+      axios
+        .get(`https://api.spotify.com/v1/tracks/${songId}`, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        })
+        .then((response) => {
+          setSongData(response.data);
+        })
+        .catch((error) => console.error("Error fetching song data:", error));
+    }
+  }, [songId, accessToken]);
+
+  if (!songData) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <>
       <SongHeader
-        imageSrc="src\assets\album_blond.jpg"
-        songName="Pink + White"
-        albumName="Blonde"
-        artistName="Frank Ocean"
-        releaseDate="Jan. 20, 2004"
+        imageSrc={songData.album.images[0].url}
+        songName={songData.name}
+        albumName={songData.album.name}
+        artistName={songData.artists.map((artist) => artist.name).join(", ")}
+        releaseDate={songData.album.release_date}
       />
-      {/* <Lyrics lines={lyrics}></Lyrics> */}
       <Recommendations />
     </>
   );
