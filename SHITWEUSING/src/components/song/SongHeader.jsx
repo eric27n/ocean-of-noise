@@ -1,6 +1,7 @@
 const SongHeader = ({
   imageSrc,
   albumName,
+  trackNumber,
   songName,
   artistName,
   releaseDate,
@@ -16,10 +17,12 @@ const SongHeader = ({
           />
         </div>
         <div className="col-md-4 d-flex flex-column justify-content-center">
-          <h5 style={{ fontSize: "1.5em" }}>Track on {albumName}</h5>
+          <h5 style={{ fontSize: "1.5em" }}>
+            Track {trackNumber} on <u>{albumName}</u>
+          </h5>
           <h2 style={{ fontSize: "3.5em" }}>{songName}</h2>
-          <h4 style={{ fontSize: "2.4em" }}>{artistName}</h4>
-          <p style={{ fontSize: "1.5em" }}>Released {releaseDate}</p>
+          <h4 style={{ fontSize: "2.4em" }}>By {artistName}</h4>
+          <p style={{ fontSize: "1.5em" }}>Released on {releaseDate}</p>
         </div>
       </div>
     </div>
