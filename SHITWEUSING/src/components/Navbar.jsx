@@ -137,11 +137,11 @@ const Navbar = ({ onSearch }) => {
   };
 
   return (
-    <nav className="navbar px-5 py-3">
+    <nav className="navbar px-5 py-4">
       <a
         className="navbar-brand mb-0 h1"
         href="#"
-        style={{ fontSize: "1.5em" }}
+        style={{ fontSize: "2.2em" }}
       >
         Ocean of Noise
       </a>
@@ -151,16 +151,18 @@ const Navbar = ({ onSearch }) => {
           type="search"
           placeholder="Search for a song!"
           aria-label="Search"
+          style={{ height: "3rem", fontSize: "1.4rem" }}
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
         <button
-          className="btn"
+          className="btn px-4"
           type="submit"
           style={{
             backgroundColor: "#000",
             color: "#fff",
             borderColor: "#000",
+            fontSize: "1.4rem",
           }}
         >
           Search
