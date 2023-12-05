@@ -412,7 +412,7 @@ function Search() {
               />
             ))}
           </div>
-          <MyComponent />
+          {/* <MyComponent /> */}
           <Recommendations />
         </div>
       ) : (
