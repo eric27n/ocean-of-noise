@@ -35,8 +35,6 @@ If you encounter errors related to missing packages, try deleting the node_modul
 npm install react-router-dom
 ```
 
-New features since demo: able to click on any track and navigate to it's corresponding page
-
-#### New Features
+### New Features
 
 - **Clickable Track Navigation:** You can now click on any track to navigate to its corresponding page.
