@@ -1,6 +1,6 @@
 # Ocean of Noise
 
-Ocean of Noise is a music recommender system designed to help users discover new artists by harnessing data from indie and eclectic radio stations. Whether you're a seasoned music enthusiast or someone looking to explore diverse genres, Ocean of Noise aims to enhance your music discovery experience.
+Ocean of Noise is a music recommender system designed to help users discover new indie and eclectic artists. Whether you're a seasoned music enthusiast or someone looking to explore diverse genres, Ocean of Noise aims to enhance your music discovery experience.
 
 ## Getting Started
 
